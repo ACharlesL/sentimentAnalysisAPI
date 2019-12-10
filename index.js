@@ -6,10 +6,13 @@ const { MongoClient, ObjectID } = require('mongodb');
 const url = process.env.MONGO_URL || 'mongodb://localhost:27017/twtsnt';
 const dbName = 'twtsnt';
 let client = null;
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const app = express();
 // app.use(cors({ port: process.env.PORT || 3000 }))
-
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 // Get a database instance
 async function getDB() {
     if (client && !client.isConnected) {
