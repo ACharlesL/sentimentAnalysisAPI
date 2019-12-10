@@ -6,7 +6,7 @@ const { MongoClient, ObjectID } = require('mongodb');
 const url = process.env.MONGO_URL || 'mongodb://localhost:27017/twtsnt';
 const dbName = 'twtsnt';
 let client = null;
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 const app = express();
 // app.use(cors({ port: process.env.PORT || 3000 }))
 
